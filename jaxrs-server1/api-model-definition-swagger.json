@@ -1,0 +1,100 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "v1",
+		"title": "Contact List",
+		"description": "A Contact list API based on Swagger and built using Java"
+	},
+	"host": "localhost",
+	"schemes": [
+		"http",
+		"https"
+	],
+	"basePath": "/api",
+	"paths": {
+		"/getUsers": {
+			"get": {
+				"tags": [
+					"user"
+				],
+				"operationId": "users_get",
+				"consumes": [],
+				"produces": [
+					"application/json",
+					"text/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/User"
+							}
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/getStations": {
+			"get": {
+				"tags": [
+					"station"
+				],
+				"operationId": "stations_get",
+				"consumes": [],
+				"produces": [
+					"application/json",
+					"text/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "array",
+							"items": {
+								"$ref": "#/definitions/Station"
+							}
+						}
+					}
+				},
+				"deprecated": false
+			}
+		},
+	},
+	"definitions": {
+		"User": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "int32",
+					"type": "integer"
+				},
+				"username": {
+					"type": "string"
+				}
+			}
+		},
+		"Station": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"format": "int32",
+					"type": "integer"
+				},
+				"name": {
+					"type": "string"
+				},
+				"lng": {
+					"format": "double",
+					"type": "number"
+				},
+				"lat": {
+					"format": "double",
+					"type": "number"
+				}
+			}
+		}
+	}
+}
