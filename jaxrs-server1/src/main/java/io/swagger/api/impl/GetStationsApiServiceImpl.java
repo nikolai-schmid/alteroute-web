@@ -15,6 +15,7 @@ public class GetStationsApiServiceImpl extends GetStationsApiService {
     public Response stationsGet(SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         StationDao sd = new StationDao();
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, new Gson().toJson(sd.readStationItems()))).build();
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK,
+                new Gson().toJson(sd.readStationItems()).toString().replace("\\\"","\""))).build();
     }
 }

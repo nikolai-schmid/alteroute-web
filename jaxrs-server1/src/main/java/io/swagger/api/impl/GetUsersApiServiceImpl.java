@@ -19,6 +19,7 @@ public class GetUsersApiServiceImpl extends GetUsersApiService {
     public Response usersGet(SecurityContext securityContext) throws NotFoundException {
         UserDao ud = new UserDao();
     	
-        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, new Gson().toJson(ud.readUserItems()))).build();
+        return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK,
+                new Gson().toJson(ud.readUserItems()).toString().replace("\"",""))).build();
     }
 }
